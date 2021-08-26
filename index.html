@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>teste</title>
+
+    <style>
+
+        *{
+            margin:0;
+            padding:0;
+        }
+
+        body{
+            background-color:lightgrey;
+        }
+
+        #containerPersonagens{
+            width:650px;
+            height:350px;
+            margin:auto;
+            background-color:darkgrey;
+            display:flex;
+            justify-content: space-around;
+            align-items: center;
+        }
+
+        #msgBox{
+            background-color:lightyellow;
+            border-radius:10px;
+            width:100%;
+            height:100px;
+            margin:15px;
+            display:flex;
+            align-items: center;
+        }
+
+        #msg{
+            width:100%;
+            text-align: center;
+            font-family: sans-serif;
+            padding:5px;
+        }
+
+        #p1,#p2{
+            margin-top:-25px;
+            text-align: center;
+            font-family: sans-serif;
+        }
+
+        #p1Bar, #p2Bar{
+            margin:5px;
+            height:25px;
+            width:150px;
+            background-color:lightgray;
+        }        
+        #p1Vida{
+            background-color:lightgreen;
+            width:100%;
+            height:100%;
+        }   
+
+        #p2Vida{
+            background-color:lightgreen;
+            width:100%;
+            height:100%;
+        }   
+        
+        button{
+            width:100px;
+            margin:1.5px;
+        }
+
+        .botoes{
+            padding:10px;
+        }     
+
+        h2{
+            font-size: 16px;
+            margin:0;
+            padding:0;
+        }
+        #barra{
+            height:50px;
+            width:100vw;
+            background-color:salmon;
+        }
+
+        .img{
+            width:125px;
+            margin-left:20px;
+        }
+
+        img{
+            width:100%;
+        }
+
+        #vencedorContainer{
+            display:none;
+            position:fixed;
+            top:0;
+            background-color: rgba(0,0,0,.5);
+            width:100vw;
+            height:100vh;
+        }        
+
+        #vencedorMsg{
+            width:600px;
+            height:250px;
+            background-color:darkblue;
+            position:fixed;
+            top:75%;
+            left:50%;
+            transform:translate(-50%,-50%);
+            border-radius:15px;
+
+        }
+
+        #vencedorContainer button{
+            font-size: 1.5em;
+            font-weight: bold;
+            width:250px;
+            height:50px;
+            border-radius: 25px;
+            border:none;
+            position:absolute;
+            left:50%;
+            bottom:25px;
+            transform:translateX(-50%)
+        }
+
+        #vencedorContainer button:hover{
+            background-color:darkred;
+            color:white;
+        }
+
+        h1{
+            color:white;
+            text-align: center;
+            font-family: sans-serif;
+            margin:auto;
+            margin-top:75px;
+        }
+
+    </style>
+ 
+</head>
+<body>
+
+    <div id="containerPersonagens">
+        <div id="p1">
+            <div class="img">
+                <img src="https://srk.shib.live/images/a/ac/Umk3_kabal_pose.png" alt="">
+            </div>
+            <h2 id='p1_nome'></h2>
+            <div id="p1Bar">
+                <div id='p1Vida'></div>
+                <div class="botoes">
+                    <button onClick='p1.atacar(p2,"soco")'>soco</button>
+                    <button onClick='p1.atacar(p2,"soco_forte")'>socão</button>
+                    <button onClick='p1.atacar(p2,"chute")'>chute</button>
+                    <button onClick='p1.atacar(p2,"chute_forte")'>chutão</button>
+                </div>              
+            </div>
+        </div>
+        <div id="msgBox">
+            <p id="msg"></p>
+        </div>
+        <div id="p2">
+            <div class="img">
+                <img src="https://legacy.mortalkombatonline.com/content/games/mk3/jax/bio.gif" alt="">
+            </div>
+            <h2 id='p2_nome'></h2>
+            <div id="p2Bar">
+                <div id='p2Vida'></div>
+                <div class="botoes">
+                    <button onClick='p2.atacar(p1,"soco")'>soco</button>
+                    <button onClick='p2.atacar(p1,"soco_forte")'>socão</button>
+                    <button onClick='p2.atacar(p1,"chute")'>chute</button>
+                    <button onClick='p2.atacar(p1,"chute_forte")'>chutão</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="vencedorContainer">
+        <div id="vencedorMsg">
+            <h1 id='vencedor'>UM DOS DOIS É O VENCEDOR!</h1>
+            <button onClick='again()'>Jogar de novo?</button>
+        </div>
+    </div>
+
+    <script src='game.js'></script>
+</body>
+</html>
